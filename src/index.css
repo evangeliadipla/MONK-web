@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-monk-blue: #181391;
+  --color-monk-gold: #D6A85C;
+  --color-monk-goldDark: #b0853f;
+  --color-monk-lightBlue: #F4F4FC;
+  --color-monk-navy: #0C0959;
+  
+  --font-sans: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: var(--font-sans);
+    @apply antialiased text-slate-800 bg-white;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Hide mobile action bar when menu is open */
+body.mobile-nav-open .mobile-action-bar {
+  opacity: 0;
+  transform: translateY(100%);
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* Custom utility to hide scrollbars on horizontal lists */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
