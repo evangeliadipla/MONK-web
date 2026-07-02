@@ -77,7 +77,7 @@ export default function Reviews() {
         {/* Disclaimer Note */}
         <div className="mt-8 text-center max-w-lg mx-auto">
           <p className="text-xs text-slate-400 font-semibold leading-relaxed">
-            * Ενδεικτικές κριτικές πελατών. Θα αντικατασταθούν με πραγματικές Google Reviews όταν συνδεθεί το Google Business profile.
+            * Ενδεικτικές κριτικές πελατών. Θα αντικατασταθούν με πραγματικές Google Reviews μετά την επιβεβαίωση του Google Business profile.
           </p>
         </div>
 

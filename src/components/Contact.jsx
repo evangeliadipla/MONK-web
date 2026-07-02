@@ -41,7 +41,7 @@ export default function Contact() {
     {
       id: "c-tiktok",
       name: "TikTok",
-      username: "Not Available",
+      username: "Μη διαθέσιμο",
       icon: (
         // Custom TikTok SVG Icon
         <svg size={24} className="w-6 h-6 fill-current" viewBox="0 0 24 24">
@@ -55,10 +55,10 @@ export default function Contact() {
     {
       id: "c-email",
       name: "Email",
-      username: businessInfo.email,
+      username: "Θα προστεθεί σύντομα",
       icon: <Mail size={24} />,
       url: businessInfo.emailHref,
-      isAvailable: !!businessInfo.email,
+      isAvailable: !!businessInfo.emailHref,
       activeColor: "hover:border-monk-blue/30 hover:text-monk-blue hover:bg-monk-lightBlue/50"
     }
   ];
@@ -90,24 +90,44 @@ export default function Contact() {
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 w-full md:w-auto">
               <Button 
                 href={businessInfo.instagramUrl}
                 variant="outline"
-                className="flex items-center justify-center gap-2"
+                className="flex items-center justify-center gap-2 font-bold text-slate-800 hover:border-monk-blue hover:text-monk-blue"
               >
                 <InstagramIcon size={18} />
-                Μήνυμα στο Instagram
+                Μήνυμα
               </Button>
               
               <Button 
                 href={businessInfo.phoneHref}
                 variant="primary"
-                className="flex items-center justify-center gap-2"
+                className="flex items-center justify-center gap-2 font-bold"
               >
                 <Phone size={18} />
                 Κλήση Παραγγελίας
               </Button>
+
+              {businessInfo.woltUrl && (
+                <Button 
+                  href={businessInfo.woltUrl}
+                  variant="secondary"
+                  className="flex items-center justify-center gap-2 font-bold text-sky-600 hover:bg-sky-50 border border-sky-100"
+                >
+                  Wolt
+                </Button>
+              )}
+
+              {businessInfo.efoodUrl && (
+                <Button 
+                  href={businessInfo.efoodUrl}
+                  variant="secondary"
+                  className="flex items-center justify-center gap-2 font-bold text-red-600 hover:bg-red-50 border border-red-100"
+                >
+                  efood
+                </Button>
+              )}
             </div>
           </div>
 
@@ -152,8 +172,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="font-extrabold text-slate-400 text-base">{social.name}</h4>
-                      <p className="text-xs text-slate-300 mt-1 font-bold uppercase tracking-wider">
-                        Μη διαθέσιμο
+                      <p className="text-xs text-slate-400 mt-1 font-bold uppercase tracking-wider">
+                        {social.username}
                       </p>
                     </div>
                   </div>

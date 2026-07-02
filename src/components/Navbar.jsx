@@ -28,7 +28,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Home", href: "#home" },
-    { name: "Menu", href: "#menu" },
+    { name: "Menu", href: "#qr-menu" },
     { name: "Gallery", href: "#gallery" },
     { name: "Reviews", href: "#reviews" },
     { name: "Location", href: "#location" },
@@ -115,8 +115,8 @@ export default function Navbar() {
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center space-x-3">
             <Button 
-              href="#menu" 
-              onClick={(e) => handleLinkClick(e, '#menu')}
+              href="#qr-menu" 
+              onClick={(e) => handleLinkClick(e, '#qr-menu')}
               variant="outline" 
               className="px-4 py-2 text-sm"
             >
@@ -165,8 +165,8 @@ export default function Navbar() {
           ))}
           <div className="pt-4 grid grid-cols-2 gap-3 px-3">
             <Button 
-              href="#menu" 
-              onClick={(e) => handleLinkClick(e, '#menu')}
+              href="#qr-menu" 
+              onClick={(e) => handleLinkClick(e, '#qr-menu')}
               variant="outline"
               className="w-full text-center"
             >

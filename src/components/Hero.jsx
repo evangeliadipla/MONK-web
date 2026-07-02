@@ -8,7 +8,7 @@ export default function Hero() {
 
   const handleScrollToMenu = (e) => {
     e.preventDefault();
-    const targetElement = document.querySelector('#menu');
+    const targetElement = document.querySelector('#qr-menu');
     if (targetElement) {
       const offset = 90; // Navbar height
       const bodyRect = document.body.getBoundingClientRect().top;
@@ -72,7 +72,7 @@ export default function Hero() {
             {/* CTA Actions Button Area */}
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-2">
               <Button 
-                href="#menu" 
+                href="#qr-menu" 
                 onClick={handleScrollToMenu}
                 variant="primary"
                 className="group flex items-center justify-center gap-2"

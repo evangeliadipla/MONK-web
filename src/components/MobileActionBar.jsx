@@ -5,7 +5,7 @@ import { businessInfo } from '../data/businessInfo';
 export default function MobileActionBar() {
   const handleScrollToMenu = (e) => {
     e.preventDefault();
-    const targetElement = document.querySelector('#menu');
+    const targetElement = document.querySelector('#qr-menu');
     if (targetElement) {
       const offset = 90; // Navbar height
       const bodyRect = document.body.getBoundingClientRect().top;
@@ -41,7 +41,7 @@ export default function MobileActionBar() {
 
       {/* Action 2: Show Menu */}
       <a
-        href="#menu"
+        href="#qr-menu"
         onClick={handleScrollToMenu}
         className="flex flex-col items-center justify-center py-2 px-1 rounded-xl text-monk-blue hover:bg-slate-50 transition-colors active:scale-95 duration-200 focus:outline-none min-h-[48px]"
         aria-label="Scroll to menu section"

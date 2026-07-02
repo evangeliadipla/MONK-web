@@ -8,7 +8,7 @@ import { businessInfo } from '../data/businessInfo';
 export default function Offers() {
   const handleScrollToMenu = (e) => {
     e.preventDefault();
-    const targetElement = document.querySelector('#menu');
+    const targetElement = document.querySelector('#qr-menu');
     if (targetElement) {
       const offset = 90; // Navbar height
       const bodyRect = document.body.getBoundingClientRect().top;
@@ -96,7 +96,7 @@ export default function Offers() {
                       </Button>
                     ) : (
                       <Button 
-                        href="#menu"
+                        href="#qr-menu"
                         onClick={handleScrollToMenu}
                         variant="outline"
                         className="w-full text-center flex items-center justify-center gap-2"
@@ -111,6 +111,13 @@ export default function Offers() {
               </div>
             );
           })}
+        </div>
+
+        {/* Price and Availability Note */}
+        <div className="mt-12 text-center">
+          <p className="text-xs md:text-sm text-slate-400 font-semibold italic">
+            * Οι τιμές είναι ενδεικτικές. Οι τιμές και η διαθεσιμότητα επιβεβαιώνονται από το κατάστημα.
+          </p>
         </div>
 
       </div>

@@ -88,8 +88,8 @@ export default function Footer() {
             <ul className="space-y-2 text-sm font-semibold">
               <li>
                 <a 
-                  href="#menu" 
-                  onClick={(e) => handleLinkClick(e, '#menu')}
+                  href="#qr-menu" 
+                  onClick={(e) => handleLinkClick(e, '#qr-menu')}
                   className="text-slate-400 hover:text-white transition-colors"
                 >
                   Μενού
@@ -170,14 +170,16 @@ export default function Footer() {
             </div>
 
             {/* Email link fallback */}
-            <div className="pt-2">
-              <a 
-                href={businessInfo.emailHref}
-                className="text-xs text-slate-400 hover:text-white transition-colors"
-              >
-                {businessInfo.email}
-              </a>
-            </div>
+            {businessInfo.emailHref && (
+              <div className="pt-2">
+                <a 
+                  href={businessInfo.emailHref}
+                  className="text-xs text-slate-400 hover:text-white transition-colors"
+                >
+                  {businessInfo.email}
+                </a>
+              </div>
+            )}
           </div>
 
         </div>

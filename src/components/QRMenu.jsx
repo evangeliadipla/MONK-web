@@ -6,19 +6,19 @@ import Button from './Button';
 export default function QRMenu() {
   const [qrUrl, setQrUrl] = useState(() => {
     if (businessInfo.qrMenuUrl) return businessInfo.qrMenuUrl;
-    if (typeof window !== 'undefined') return `${window.location.origin}/#menu`;
-    return 'https://monkcoffee.gr/#menu';
+    if (typeof window !== 'undefined') return `${window.location.origin}/#qr-menu`;
+    return 'https://monkcoffee.gr/#qr-menu';
   });
 
   useEffect(() => {
     if (!businessInfo.qrMenuUrl && typeof window !== 'undefined') {
-      setQrUrl(`${window.location.origin}/#menu`);
+      setQrUrl(`${window.location.origin}/#qr-menu`);
     }
   }, []);
 
   const handleScrollToMenu = (e) => {
     e.preventDefault();
-    const targetElement = document.querySelector('#menu');
+    const targetElement = document.querySelector('#qr-menu');
     if (targetElement) {
       const offset = 90; // Navbar height
       const bodyRect = document.body.getBoundingClientRect().top;
@@ -37,7 +37,7 @@ export default function QRMenu() {
   const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&color=181391&data=${encodeURIComponent(qrUrl)}`;
 
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
+    <section id="qr-menu" className="py-20 bg-white relative overflow-hidden scroll-mt-24">
       {/* Decorative background shapes */}
       <div className="absolute top-1/2 left-full -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-monk-blue/5 rounded-full filter blur-3xl pointer-events-none" />
 
@@ -56,32 +56,53 @@ export default function QRMenu() {
               </span>
               
               <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight">
-                Σκάναρε το QR code και δες το menu απευθείας από το κινητό σου.
+                Σκάναρε το QR και δες το menu του MONK.
               </h2>
               
               <p className="text-slate-200 text-sm md:text-base font-normal leading-relaxed">
-                Άνοιξε το menu χωρίς αναμονή, διάλεξε την κατηγορία σου και κράτησε την παραγγελία απλή. Ιδανικό για γρήγορη take-away παραγγελία ή όταν κάθεσαι στο κατάστημα.
+                Άνοιξε το ψηφιακό menu από το κινητό σου, δες τις διαθέσιμες επιλογές και κράτησε την παραγγελία σου απλή.
               </p>
 
               {/* Action buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start pt-2">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center md:justify-start pt-2">
                 <Button 
-                  href="#menu" 
-                  onClick={handleScrollToMenu}
+                  href={qrUrl}
+                  target="_blank"
                   variant="white"
                   className="flex items-center justify-center gap-2 font-bold"
                 >
                   <BookOpen size={18} className="text-monk-blue" />
                   Άνοιγμα Menu
                 </Button>
+                
                 <Button 
                   href={businessInfo.phoneHref}
                   variant="outlineGold"
-                  className="flex items-center justify-center gap-2 border-monk-gold text-monk-gold hover:bg-monk-gold hover:text-white"
+                  className="flex items-center justify-center gap-2 border-monk-gold text-monk-gold hover:bg-monk-gold hover:text-white font-bold"
                 >
                   <Phone size={18} />
                   Κάλεσε για Παραγγελία
                 </Button>
+
+                {businessInfo.woltUrl && (
+                  <Button 
+                    href={businessInfo.woltUrl}
+                    variant="outline"
+                    className="flex items-center justify-center gap-2 border-white/20 text-white hover:bg-white hover:text-monk-blue font-bold"
+                  >
+                    Παραγγελία Wolt
+                  </Button>
+                )}
+
+                {businessInfo.efoodUrl && (
+                  <Button 
+                    href={businessInfo.efoodUrl}
+                    variant="outline"
+                    className="flex items-center justify-center gap-2 border-white/20 text-white hover:bg-white hover:text-monk-blue font-bold"
+                  >
+                    Παραγγελία efood
+                  </Button>
+                )}
               </div>
             </div>
 

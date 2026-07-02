@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import QuickActions from './components/QuickActions';
 import Offers from './components/Offers';
-import MenuSection from './components/MenuSection';
 import QRMenu from './components/QRMenu';
 import Gallery from './components/Gallery';
 import Reviews from './components/Reviews';
@@ -24,7 +23,6 @@ function App() {
         <Hero />
         <QuickActions />
         <Offers />
-        <MenuSection />
         <QRMenu />
         <Gallery />
         <Reviews />

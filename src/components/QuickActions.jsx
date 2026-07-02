@@ -4,7 +4,7 @@ import { businessInfo } from '../data/businessInfo';
 
 export default function QuickActions() {
   const handleScrollToMenu = (e) => {
-    const targetElement = document.querySelector('#menu');
+    const targetElement = document.querySelector('#qr-menu');
     if (targetElement) {
       const offset = 90; // Navbar height
       const bodyRect = document.body.getBoundingClientRect().top;
@@ -25,7 +25,7 @@ export default function QuickActions() {
       title: "Menu",
       description: "Δες καφέδες, brunch επιλογές και σπιτικά γλυκά.",
       icon: <BookOpen className="w-8 h-8 text-monk-blue" />,
-      href: "#menu",
+      href: "#qr-menu",
       onClick: handleScrollToMenu,
       isExternal: false,
       buttonText: "Άνοιγμα Μενού"
